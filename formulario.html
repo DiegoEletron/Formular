@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/Users/desktop.ini"methad="post">
+        <fieldset>
+         <legend><h1>Dados pessoais </h1></legend>
+         <label for="nome">Nome completo</label>
+         <input type="text" id="nome" required minlength="3"/>
+         <label for="cpf">CPF</label>
+            <input type="number_format" id="cpf" maxlength="14" placeholder="000.000.000.00" OnKeyPress="formatar('###.###.###-##',this)" required/>
+            <label for="tel">Telefone:</label>
+            <input type="text" name="tel" maxlength="15" OnKeyPress="formatar('(##) ####-#####',this)"  required  placeholder="(dd)000-00000"/>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" minlength="30" maxlength="100" required  placeholder="nome-ou-apelido@gmail.com.br"/>
+        </fieldset>
+        <fieldset>
+            <legend><h1>Sexo</h1></legend>
+            <label for="sexo">Masculino</label>
+            <input type="radio" name="sexo"/>
+            <label for="sexo">Feminino</label>
+            <input type="radio" name="sexo" required/>          
+        </fieldset>
+        <fieldset>
+            <legend ><h1>preferencias</h1></legend>
+           Moda: <input type="checkbox" name="op" value="moda"/>           
+           Esporte:<input type="checkbox" name="op" value="esporte"/>           
+           Games:<input type="checkbox"  name="op" value="games"/>           
+           Outros:<input type="checkbox" name="op" value="outros"  />
+           
+        </fieldset>
+        <fieldset>
+            <legend><h1>Loguin Senha</h1></legend>
+            <label for="apelido">Apelido</label>
+            <input type="text" id="apelido" minlength="8" required/>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        </fieldset>
+        <fieldset>
+            <button type="submit">eviar</button>
+            <button type="reset">limpa</button>
+        </fieldset>
+        
+
+</body>
+<script>  
+
+    function formatar(mascara, documento) {
+      let i = documento.value.length;
+      let saida = '#';
+      let texto = mascara.substring(i);
+      while (texto.substring(0, 1) != saida && texto.length ) {
+        documento.value += texto.substring(0, 1);
+        i++;
+        texto = mascara.substring(i);
+      }
+    }
+  </script>
+</html>
